@@ -1,0 +1,148 @@
+@import "../../../../assets/styles/variables";
+
+.header {
+  padding: 40px 0;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .burger-menu {
+    display: none;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    gap: 141px;
+  }
+
+  &__list {
+    display: flex;
+    gap: 30px;
+
+    &__item {
+      font-size: 16px;
+      line-height: 130%;
+    }
+  }
+
+  &__link {
+    &:hover {
+      color: $light-blue-hover;
+    }
+  }
+
+  &__phone {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+    color: $light-blue-color;
+
+    &-icon {
+      display: none;
+    }
+  }
+
+  &__authorization {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    &-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &:hover {
+      color: $light-blue-color;
+    }
+  }
+}
+
+@media screen and (max-width: 1270px) {
+  .header {
+    padding: 40px 0;
+
+    &__info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    &__action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    &__list {
+      display: flex;
+      gap: 30px;
+
+      &__item {
+        font-size: 16px;
+        line-height: 130%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .header {
+
+    &__action {
+      gap: 10px;
+    }
+
+    &__phone {
+      a {
+        display: none;
+      }
+
+      &-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 15px 0;
+
+    &__navigation {
+      display: none;
+    }
+
+    &__authorization {
+      &-text {
+        display: none;
+      }
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 99999;
+}

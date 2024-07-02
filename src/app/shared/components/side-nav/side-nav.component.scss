@@ -1,0 +1,40 @@
+@import "../../../../assets/styles/variables";
+
+.side-nav {
+  display: none;
+
+  position: relative;
+  z-index: 999999;
+
+  &__list {
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+    &__item {
+      font-size: 16px;
+      line-height: 130%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .side-nav {
+    display: block;
+    width: 250px;
+    height: 100%;
+    background-color: $light-bg-color;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+
+    &.open {
+      left: 0;
+    }
+  }
+}

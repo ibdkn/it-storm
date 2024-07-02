@@ -1,0 +1,113 @@
+@import "../../../../assets/styles/variables";
+
+.footer {
+  padding: 40px 0;
+  background-color: $light-bg-color;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  &__bottom {
+    display: flex;
+    gap: 60px;
+    margin-bottom: 6px;
+  }
+
+  &__list {
+    display: flex;
+    gap: 30px;
+
+    &__item {
+      font-size: 16px;
+      line-height: 130%;
+    }
+  }
+
+  &__link {
+    &:hover {
+      color: $light-blue-hover;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &-title {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 130%;
+      color: $light-blue-color;
+    }
+
+    &-text {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 130%;
+      color: #071739;
+    }
+
+    &-address {
+      max-width: 253px;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 12px;
+  }
+
+  &__rights {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    color: $light-blue-color;
+  }
+
+}
+
+@media screen and (max-width: 1023px) {
+  .footer {
+    &__bottom {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    &__info {
+      max-width: 160px;
+      width: 160px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    &__top {
+      flex-direction: column;
+    }
+
+    &__bottom {
+      display: grid;
+      grid-template-columns: 160px 160px;
+      grid-template-rows: max-content max-content;
+      gap: 40px 20px;
+      margin-bottom: 20px;
+    }
+
+    &__list {
+      gap: 15px 30px;
+      flex-wrap: wrap;
+    }
+  }
+}
+
