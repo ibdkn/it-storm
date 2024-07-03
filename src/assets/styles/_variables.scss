@@ -13,3 +13,10 @@ $light-blue-hover: #6088bb;
   font-size: 36px;
   color: $light-blue-color;
 }
+
+@mixin main--mobile-title {
+  font-family: 'Lora', sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: $light-blue-color;
+}

@@ -87,5 +87,31 @@
   </div>
 </section>
 
+<section class="offers" id="offers">
+  <div class="container">
 
+    <div class="offers-title">Услуги, которые мы предлагаем</div>
+
+    <div class="offers-items">
+
+      <div class="offer" *ngFor="let offer of offers">
+
+        <div class="offer__image"
+             [ngStyle]="{'background-image': 'url(/assets/images/offers/' +  offer.image + ')'}"></div>
+
+        <div class="offer__title">{{ offer.title }}</div>
+
+        <div class="offer__description">{{ offer.description }}</div>
+
+        <div class="offer__action">
+          <div class="offer__price">От {{ offer.price }}₽</div>
+          <button class="button offer__button">Подробнее</button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
