@@ -1,55 +1,55 @@
 <section class="main">
   <div class="container">
-    <div class="main-carousel">
+    <div class="main__carousel">
 
       <owl-carousel-o [options]="customOptionsMain" #owlCarMain>
 
         <ng-template carouselSlide>
-          <div class="main-item first"
+          <div class="slide first"
                [ngStyle]="{'background-image': 'url(/assets/images/pages/main-slide-1.png)'}">
-            <img src="/assets/images/pages/main-slide-bg.png" alt="">
-            <div class="main-category">
+            <img class="slide__image" src="/assets/images/pages/main-slide-bg.png" alt="">
+            <div class="slide__category">
               Предложение месяца
             </div>
-            <div class="main-title">
+            <div class="slide__title">
               Продвижение в Instagram для вашего бизнеса <span>-15%</span>!
             </div>
-            <button class="button">Подробнее</button>
+            <button class="button slide__button">Подробнее</button>
           </div>
         </ng-template>
 
         <ng-template carouselSlide>
-          <div class="main-item"
+          <div class="slide"
                [ngStyle]="{'background-image': 'url(/assets/images/pages/main-slide-2.png)'}">
-            <img src="/assets/images/pages/main-slide-bg.png" alt="">
-            <div class="main-category">
+            <img class="slide__image" src="/assets/images/pages/main-slide-bg.png" alt="">
+            <div class="slide__category">
               Акция
             </div>
-            <div class="main-title">
+            <div class="slide__title">
               Нужен грамотный <span>копирайтер</span>?
             </div>
-            <div class="main-description">
+            <div class="slide__description">
               Весь декабрь у нас действует акция на работу копирайтера.
             </div>
-            <button class="button">Подробнее</button>
+            <button class="button slide__button">Подробнее</button>
           </div>
         </ng-template>
 
         <ng-template carouselSlide>
-          <div class="main-item"
+          <div class="slide"
                [ngStyle]="{'background-image': 'url(/assets/images/pages/main-slide-3.png)'}">
-            <img src="/assets/images/pages/main-slide-bg.png" alt="">
-            <div class="main-category">
+            <img class="slide__image" src="/assets/images/pages/main-slide-bg.png" alt="">
+            <div class="slide__category">
               Новость дня
             </div>
-            <div class="main-title">
+            <div class="slide__title">
               <span>6 место</span> в ТОП-10 <br>
               SMM-агенств Москвы!
             </div>
-            <div class="main-description">
+            <div class="slide__description">
               Мы благодарим каждого, кто голосовал за нас!
             </div>
-            <button class="button">Подробнее</button>
+            <button class="button slide__button">Подробнее</button>
           </div>
         </ng-template>
 
@@ -86,4 +86,6 @@
     </div>
   </div>
 </section>
+
+
 

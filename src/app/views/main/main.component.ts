@@ -34,6 +34,7 @@ export class MainComponent implements OnInit {
     nav: false
   }
 
+
   constructor() { }
 
   ngOnInit(): void {
