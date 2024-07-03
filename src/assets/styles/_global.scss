@@ -19,6 +19,12 @@ img {
   max-width: 100%;
 }
 
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
