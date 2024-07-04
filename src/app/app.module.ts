@@ -13,6 +13,7 @@ import {CarouselModule} from "ngx-owl-carousel-o";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ArticleCardComponent } from './shared/components/article-card/article-card.component';
 import {HttpClientModule} from "@angular/common/http";
+import { BlogComponent } from './views/blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {HttpClientModule} from "@angular/common/http";
     MainComponent,
     BurgerMenuComponent,
     SideNavComponent,
-    ArticleCardComponent
+    ArticleCardComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,

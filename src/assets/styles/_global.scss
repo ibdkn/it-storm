@@ -79,3 +79,14 @@ body {
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
   background: #ffffff;
 }
+
+.common-title {
+  @include main-title;
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .common-title {
+    margin-bottom: 20px;
+  }
+}
