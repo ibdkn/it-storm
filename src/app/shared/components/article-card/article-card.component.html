@@ -1,0 +1,20 @@
+<div class="article">
+
+  <a [routerLink]="'/article/' + article.url" class="article__info">
+
+    <div class="article__image"
+         [ngStyle]="{'background-image': 'url(' + serverStaticPath + article.image + ')'}">
+      <div class="article__category">{{article.category}}</div>
+    </div>
+
+    <div class="article__title">{{article.title}}</div>
+
+    <div class="article__description">
+      {{article.description}}
+    </div>
+
+  </a>
+
+  <a href="#" class="article__more">Читать дальше</a>
+
+</div>

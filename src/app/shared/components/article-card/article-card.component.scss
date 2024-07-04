@@ -1,0 +1,63 @@
+@import "../../../../assets/styles/variables";
+
+.article {
+  width: 292px;
+  height: 571px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__image {
+    position: relative;
+    width: 291px;
+    height: 291px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
+
+  &__category {
+    padding: 10px 18px;
+    position: absolute;
+    top: 10px;
+    right: 9px;
+    font-weight: 400;
+    font-size: 11px;
+    text-align: center;
+    color: $light-blue-color;
+    background: #FFFFFF;
+    border-radius: 5px;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 130%;
+    color: $light-blue-color;
+    margin-bottom: 20px;
+  }
+
+  &__description {
+    font-size: 14px;
+    line-height: 130%;
+    color:$dark-blue-color;
+  }
+
+  &__more {
+    width: 124px;
+    font-size: 16px;
+    border-bottom: 1px solid $light-blue-color;
+    color: $light-blue-color;
+    transition: .2s;
+
+    &:hover {
+      border-bottom: 1px solid transparent;
+      transition: .2s;
+    }
+
+  }
+}
+
+
+

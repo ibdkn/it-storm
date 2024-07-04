@@ -11,6 +11,8 @@ import {BurgerMenuComponent} from './shared/components/burger-menu/burger-menu.c
 import {SideNavComponent} from './shared/components/side-nav/side-nav.component';
 import {CarouselModule} from "ngx-owl-carousel-o";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { ArticleCardComponent } from './shared/components/article-card/article-card.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -20,10 +22,12 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     FooterComponent,
     MainComponent,
     BurgerMenuComponent,
-    SideNavComponent
+    SideNavComponent,
+    ArticleCardComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     CarouselModule

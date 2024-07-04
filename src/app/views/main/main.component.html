@@ -182,7 +182,11 @@
     <div class="articles__title">Популярные статьи из блога</div>
 
     <div class="articles__items">
-
+      <app-article-card
+        *ngFor="let article of topArticles"
+        [article]="article"
+      >
+      </app-article-card>
     </div>
 
     <a routerLink="/blog" class="articles__action">
