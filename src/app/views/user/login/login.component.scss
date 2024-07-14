@@ -1,0 +1,23 @@
+@import "../../../../assets/styles/auth-form";
+
+.login {
+  padding: 106px 0 92px 0;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .login {
+    padding: 60px 0;
+
+    .container {
+      flex-direction: column;
+      gap: 50px;
+    }
+  }
+}

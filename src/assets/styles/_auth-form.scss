@@ -1,0 +1,116 @@
+@import "variables";
+
+.auth-form {
+  min-width: 435px;
+
+  &__title {
+    @include main-title;
+    margin-bottom: 40px;
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+
+    .input {
+      padding: 18px 20px;
+      max-width: 422px;
+      width: 100%;
+      height: 53px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: #414141;
+
+      background: #FFFFFF;
+      border: 1.5px solid #709FDC;
+      border-radius: 3px;
+      outline: none;
+      box-sizing: border-box;
+      margin-bottom: 5px;
+
+      &::placeholder {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        color: #A8ABA7;
+      }
+    }
+  }
+
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 45px;
+
+    input {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      color: $dark-blue-color;
+      cursor: pointer;
+    }
+  }
+
+  &__action {
+    margin-bottom: 10px;
+
+    .button {
+      max-width: 422px;
+      width: 100%;
+      height: 51px;
+      font-weight: 400;
+      font-size: 16px;
+    }
+
+  }
+
+  &__link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #1E1A2B;
+
+    a {
+      color: $light-blue-color;
+      transition: .5s;
+
+      &:hover {
+        color: #4c6b94;
+        transition: .5s;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 1023px) {
+  .auth-form {
+    max-width: 422px;
+    width: 100%;
+    min-width: unset;
+
+
+    &__title {
+      @include main-mobile-title;
+      margin-bottom: 20px;
+    }
+
+    &__checkbox {
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+  }
+
+  .page-image {
+    max-width: 422px;
+    margin: 0 auto;
+  }
+}
