@@ -14,6 +14,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ArticleCardComponent } from './shared/components/article-card/article-card.component';
 import {HttpClientModule} from "@angular/common/http";
 import { BlogComponent } from './views/blog/blog.component';
+import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -31,10 +33,14 @@ import { BlogComponent } from './views/blog/blog.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    MatSnackBarModule,
+    MatMenuModule,
     BrowserAnimationsModule,
     CarouselModule
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
