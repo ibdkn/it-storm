@@ -1,0 +1,228 @@
+@import "../../../assets/styles/variables";
+
+.blog {
+  padding: 80px 0 120px 0;
+
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
+  .blog-applied-filters {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+
+    .blog-applied-filter {
+      padding: 8px 20px;
+      display: flex;
+      align-items: center;
+      background: #FFFFFF;
+      border: 2px solid $light-blue-color;
+      border-radius: 5px;
+      box-sizing: border-box;
+
+      span {
+        font-size: 16px;
+        color: $light-blue-color;
+        margin-right: 8px;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+    }
+
+  }
+
+  .filter {
+    position: relative;
+    width: 257px;
+    font-size: 16px;
+    box-sizing: border-box;
+
+    &__head {
+      padding: 12px 0 12px 23px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      color: $dark-blue-color;
+      cursor: pointer;
+
+      span {
+        width: 120px;
+        margin-right: 8px;
+      }
+
+      svg {
+        transition: .6s;
+      }
+    }
+
+    &__body {
+      padding: 12px 23px;
+      display: none;
+      position: absolute;
+      width: 100%;
+      background: #FFFFFF;
+      border: 2px solid #B9D5FD;
+      border-radius: 0 0 5px 5px;
+      box-sizing: border-box;
+      z-index: 5;
+
+      &.open {
+        &__head {
+          padding-right: 23px;
+          justify-content: space-between;
+          background: #B9D5FD;
+          border-radius: 5px 5px 0 0;
+
+          span {
+            width: auto;
+            margin-right: 0;
+          }
+
+          svg {
+            transform: rotate(180deg);
+            transition: .6s;
+          }
+        }
+
+        &__body {
+          display: block;
+        }
+      }
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #BEBEBE;
+      margin-bottom: 14px;
+      cursor: pointer;
+
+      &.active {
+        color: $dark-blue-color;
+      }
+
+      .remove {
+        width: 12px;
+        height: 19px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    &.open {
+      .filter__head {
+        padding-right: 23px;
+        justify-content: space-between;
+        background: #B9D5FD;
+        border-radius: 5px 5px 0 0;
+
+        span {
+          width: auto;
+          margin-right: 0;
+        }
+
+        svg {
+          transform: rotate(180deg);
+          transition: .6s;
+        }
+      }
+
+      .filter__body {
+        display: block;
+      }
+    }
+  }
+
+  &__articles {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px 24px;
+    margin-bottom: 60px;
+  }
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .pagination-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      &.disabled {
+        opacity: 0.5;
+      }
+    }
+
+    .pagination-pages {
+      display: flex;
+      align-items: center;
+      margin: 0 40px;
+
+      .pagination-page {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 46px;
+        font-size: 20px;
+        color: rgba(30, 26, 43, 0.3);
+        cursor: pointer;
+
+        &.active {
+          color: #B9D5FD;
+        }
+
+        &:not(:last-child) {
+          margin-right: 20px;
+        }
+      }
+
+    }
+
+  }
+}
+
+@media screen and (max-width: 1270px) {
+  .blog {
+    &__articles {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .blog {
+    padding: 40px 0 60px 0;
+
+    &__head {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .blog-applied-filters {
+      flex-wrap: wrap;
+    }
+
+    .filter {
+      align-self: flex-end;
+    }
+  }
+}
