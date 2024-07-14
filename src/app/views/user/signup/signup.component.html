@@ -1,4 +1,4 @@
-<section class="signup">
+<section class="signup" [formGroup]="signupForm">
   <div class="container">
 
     <div class="auth-form">
@@ -7,12 +7,23 @@
 
       <div class="auth-form__inputs">
         <div class="auth-form__input">
-          <input type="text" class="input" placeholder="Ваше имя">
-          <input type="text" class="input" placeholder="Электронная почта">
-          <input type="password" class="input" placeholder="Пароль">
+          <input type="text" class="input" placeholder="Ваше имя"
+                 [ngStyle]="{'border-color': signupForm.get('name')?.invalid && (signupForm.get('name')?.dirty || signupForm.get('name')?.touched) ? 'red' : ''}"
+            formControlName="name"
+          >
+          <input type="text" class="input" placeholder="Электронная почта"
+                 [ngStyle]="{'border-color': signupForm.get('email')?.invalid && (signupForm.get('email')?.dirty || signupForm.get('email')?.touched) ? 'red' : ''}"
+                 formControlName="email"
+          >
+          <input type="password" class="input" placeholder="Пароль"
+                 [ngStyle]="{'border-color': signupForm.get('password')?.invalid && (signupForm.get('password')?.dirty || signupForm.get('password')?.touched) ? 'red' : ''}"
+                 formControlName="password"
+          >
         </div>
         <div class="auth-form__checkbox">
-          <input type="checkbox" id="agree">
+          <input type="checkbox" id="agree"
+                 formControlName="agree"
+          >
           <label for="agree">
             Я принимаю
             <a routerLink="/signup" fragment="licenseAgreement" target="_blank" id="licenseAgreement">
@@ -27,7 +38,12 @@
       </div>
 
       <div class="auth-form__action">
-        <button class="button">Зарегистрироваться</button>
+        <button class="button"
+                [disabled]="signupForm.invalid"
+                (click)="signup()"
+        >
+          Зарегистрироваться
+        </button>
       </div>
 
       <div class="auth-form__link">

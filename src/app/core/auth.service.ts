@@ -20,6 +20,11 @@ export class AuthService {
       email, password, rememberMe
     })
   }
+  signup(name: string, email: string, password: string): Observable<DefaultResponseType | LoginResponseType> {
+    return this.http.post<DefaultResponseType | LoginResponseType>(environment.api + 'signup', {
+      name, email, password
+    })
+  }
 
   public setTokens(accessToken: string, refreshToken: string): void {
     localStorage.setItem(this.accessTokenKey, accessToken);
