@@ -1,22 +1,10 @@
-$container-width: 1270px;
-$dark-blue-color: #071739;
-$light-blue-color: #709FDC;
-$light-bg-color: #b9d5fd;
-$white-color: #ffffff;
-$black-color: #000000;
-
-$light-blue-hover: #6088bb;
+$container-width: 1240px;
+$dark-blue-text-color: #071739;
+$light-blue-text-color: #709FDC;
 
 @mixin main-title {
   font-family: 'Lora', sans-serif;
   font-weight: 400;
   font-size: 36px;
-  color: $light-blue-color;
-}
-
-@mixin main-mobile-title {
-  font-family: 'Lora', sans-serif;
-  font-weight: 400;
-  font-size: 26px;
-  color: $light-blue-color;
+  color: $light-blue-text-color;
 }

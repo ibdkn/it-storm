@@ -1,20 +1,20 @@
 <div class="article">
 
-  <a [routerLink]="'/article/' + article.url" class="article__info">
+  <a [routerLink]="'/article/' + article.url" class="article-info">
 
-    <div class="article__image"
+    <div class="article-image"
          [ngStyle]="{'background-image': 'url(' + serverStaticPath + article.image + ')'}">
-      <div class="article__category">{{article.category}}</div>
+      <div class="article-category">{{article.category}}</div>
     </div>
 
-    <div class="article__title">{{article.title}}</div>
+    <div class="article-title">{{article.title}}</div>
 
-    <div class="article__description">
-      {{article.description}}
+    <div class="article-description">
+      {{article.description | reduceTheText}}
     </div>
 
   </a>
 
-  <a href="#" class="article__more">Читать дальше</a>
+  <a [routerLink]="'/article/' + article.url" class="article-more">Читать дальше</a>
 
 </div>

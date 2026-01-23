@@ -1,113 +1,170 @@
 @import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/auth-form";
 
 .footer {
-  padding: 40px 0;
-  background-color: $light-bg-color;
+  padding: 40px 0 54px 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #B9D5FD;
 
   .container {
-    display: flex;
-    flex-direction: column;
-  }
 
-  &__top {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    margin-bottom: 40px;
-  }
+    .footer-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
 
-  &__bottom {
-    display: flex;
-    gap: 60px;
-    margin-bottom: 6px;
-  }
+      .footer-info-logo {
+        width: 85px;
+        margin-right: 40px;
+      }
 
-  &__list {
-    display: flex;
-    gap: 30px;
+      .footer-info-menu {
+        ul {
+          display: flex;
+          align-items: center;
 
-    &__item {
-      font-size: 16px;
-      line-height: 130%;
-    }
-  }
+          li {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            list-style: none;
+            color: $dark-blue-text-color;
 
-  &__link {
-    &:hover {
-      color: $light-blue-hover;
-    }
-  }
-
-  &__info {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    &-title {
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 130%;
-      color: $light-blue-color;
+            &:not(:last-child) {
+              margin-right: 20px;
+            }
+          }
+        }
+      }
     }
 
-    &-text {
+    .footer-link {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 6px;
+
+      .footer-link-title {
+        font-weight: 500;
+        font-size: 16px;
+        color: $light-blue-text-color;
+        margin-bottom: 10px;
+      }
+
+      .footer-link-text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 130%;
+        color: $dark-blue-text-color;
+      }
+
+      .footer-link-address {
+        max-width: 253px;
+        margin-right: 60px;
+      }
+
+      .footer-link-phone {
+        margin-right: 60px;
+
+        .footer-link-text {
+          margin-bottom: 10px;
+        }
+
+        .footer-button {
+          width: 153px;
+          height: 36px;
+        }
+      }
+
+      .footer-link-email {
+        margin-right: 60px;
+
+        .footer-link-text {
+          font-size: 14px;
+        }
+      }
+
+      .footer-link-socials {
+
+        .footer-link-title {
+          margin-bottom: 16px;
+        }
+
+        .footer-link-socials-icons {
+
+          a:not(:last-child) {
+            margin-right: 12px;
+          }
+
+        }
+      }
+
+    }
+
+    .footer-rights {
       font-weight: 400;
       font-size: 16px;
-      line-height: 130%;
-      color: #071739;
+      color: $light-blue-text-color;
     }
 
-    &-address {
-      max-width: 253px;
-    }
-  }
-
-  &__socials {
-    display: flex;
-    gap: 12px;
-  }
-
-  &__rights {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 130%;
-    color: $light-blue-color;
-  }
-
-}
-
-@media screen and (max-width: 1023px) {
-  .footer {
-    &__bottom {
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    &__info {
-      max-width: 160px;
-      width: 160px;
-    }
   }
 }
 
-@media screen and (max-width: 768px) {
-  .footer {
-    &__top {
-      flex-direction: column;
-    }
+.popup {
+  padding: 163px 0;
+  position: relative;
+  width: 727px;
+  background: #FFFFFF;
+  border: 1px solid #709FDC;
+  border-radius: 10px;
 
-    &__bottom {
-      display: grid;
-      grid-template-columns: 160px 160px;
-      grid-template-rows: max-content max-content;
-      gap: 40px 20px;
-      margin-bottom: 20px;
-    }
+  &.free-consultation-popup {
+    padding: 95px 0;
 
-    &__list {
-      gap: 15px 30px;
-      flex-wrap: wrap;
+    .button {
+      width: 422px;
+      height: 51px;
+      font-size: 16px;
     }
+  }
+
+  .popup-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+  }
+
+  .popup-title {
+    @include main-title;
+    font-size: 38px;
+    text-align: center;
+    margin-bottom: 20px;
+
+    &.free-consultation-popup-title {
+      max-width: 406px;
+      margin: 0 auto 20px;
+    }
+  }
+
+  .popup-content {
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    color: #1E1A2B;
+    margin-bottom: 40px;
+
+    &.free-consultation-popup-content {
+      width: 422px;
+      margin: 0 auto 20px;
+    }
+  }
+
+  .button {
+    display: block;
+    width: 73px;
+    height: 36px;
+    font-size: 12px;
+    margin: 0 auto;
   }
 }
 

@@ -1,21 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import {OwlOptions} from "ngx-owl-carousel-o";
-import {ArticlesService} from "../../shared/services/articles.service";
+import {Component, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import {OwlOptions} from 'ngx-owl-carousel-o';
 import {ArticleType} from "../../../types/article.type";
+import {ArticleService} from "../../shared/services/article.service";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {FormBuilder, Validators} from "@angular/forms";
+import {OrderService} from "../../shared/services/order.service";
+import {OrderType} from "../../../types/order.type";
+import {DefaultResponseType} from "../../../types/default-response.type";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {LoaderService} from "../../shared/services/loader.service";
+import { HttpErrorResponse } from "@angular/common/http";
 
 @Component({
-  selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+    selector: 'app-main',
+    templateUrl: './main.component.html',
+    styleUrls: ['./main.component.scss'],
+    standalone: false
 })
 export class MainComponent implements OnInit {
 
-  topArticles: ArticleType[] = [];
+  errorRequest: boolean = false;
+
+  popularArticles: ArticleType[] = [];
 
   customOptionsMain: OwlOptions = {
     loop: true,
-    mouseDrag: true,
-    touchDrag: true,
+    mouseDrag: false,
+    touchDrag: false,
     pullDrag: false,
     margin: 10,
     dots: true,
@@ -40,8 +51,8 @@ export class MainComponent implements OnInit {
 
   customOptionsReviews: OwlOptions = {
     loop: true,
-    mouseDrag: true,
-    touchDrag: true,
+    mouseDrag: false,
+    touchDrag: false,
     pullDrag: false,
     margin: 26,
     dots: false,
@@ -49,20 +60,19 @@ export class MainComponent implements OnInit {
     navText: ['', ''],
     responsive: {
       0: {
-        items: 1,
-        margin: 10
+        items: 1
       },
       400: {
-        items: 2,
-        margin: 10
+        items: 2
       },
       740: {
-        items: 3,
-        margin: 10
+        items: 3
       },
     },
     nav: false
   }
+
+  selectedService: string = '';
 
   offers = [
     {
@@ -129,13 +139,88 @@ export class MainComponent implements OnInit {
     }
   ];
 
-  constructor(public articleService: ArticlesService) { }
+  @ViewChild('thanksPopup') thanksPopup!: TemplateRef<ElementRef>
+  thanksDialogRef: MatDialogRef<any> | null = null;
 
-  ngOnInit(): void {
-    this.articleService.getTopArticles()
+  @ViewChild('orderPopup') orderPopup!: TemplateRef<ElementRef>
+  orderPopupDialogRef: MatDialogRef<any> | null = null;
+
+  order = this.fb.group({
+    service: [''],
+    name: ['', [Validators.required, Validators.pattern(/^([А-ЯA-z]{1}[а-яa-z]{1,19})+(\s+([А-ЯA-z]{1}[а-яa-z]{1,19})+)?$/)]],
+    phone: ['', [Validators.required, Validators.pattern(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/)]],
+  });
+
+  constructor(private articleService: ArticleService,
+              public dialog: MatDialog,
+              private fb: FormBuilder,
+              private orderService: OrderService,
+              private _snackBar: MatSnackBar,
+              private loaderService: LoaderService) {
+  }
+
+  ngOnInit() {
+    this.loaderService.show();
+    this.articleService.getPopularArticles()
       .subscribe((data: ArticleType[]) => {
-        this.topArticles = data;
+        this.popularArticles = data;
+        this.loaderService.hide();
       });
   }
 
+  openOrderModal(title?: string) {
+    // передаю тип услуги и хочу его добавлять в выбранный селект
+    if(title) {
+      this.order.setValue({
+        service: title,
+        name: '',
+        phone: '',
+      })
+    }
+    this.orderPopupDialogRef = this.dialog.open(this.orderPopup);
+  }
+
+  createOrder() {
+    if (this.order.valid && this.order.value.service && this.order.value.name && this.order.value.phone) {
+      const params: OrderType = {
+        name: this.order.value.name,
+        phone: this.order.value.phone,
+        service: this.order.value.service,
+        type: 'order'
+      }
+      this.orderService.createOrder(params)
+        .subscribe({
+            next: (data: DefaultResponseType) => {
+              this.closeOrderPopup();
+              this.thanksDialogRef = this.dialog.open(this.thanksPopup);
+            },
+          error: (errorResponse: HttpErrorResponse) => {
+            if (errorResponse.error && errorResponse.error.message) {
+              this.errorRequest = true;
+            }
+          }
+          }
+        );
+    }
+    if(this.errorRequest) {
+      this.order = this.fb.group({
+        service: [''],
+        name: ['', [Validators.required, Validators.pattern(/^([А-ЯA-z]{1}[а-яa-z]{1,19})+(\s+([А-ЯA-z]{1}[а-яa-z]{1,19})+)?$/)]],
+        phone: ['', [Validators.required, Validators.pattern(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/)]],
+      });
+    }
+  }
+
+  closeThanksPopup() {
+    this.thanksDialogRef?.close();
+  }
+
+  closeOrderPopup() {
+    this.orderPopupDialogRef?.close();
+    this.order = this.fb.group({
+      service: [''],
+      name: ['', [Validators.required, Validators.pattern(/^([А-ЯA-z]{1}[а-яa-z]{1,19})+(\s+([А-ЯA-z]{1}[а-яa-z]{1,19})+)?$/)]],
+      phone: ['', [Validators.required, Validators.pattern(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/)]],
+    });
+  }
 }

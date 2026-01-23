@@ -3,40 +3,38 @@
 
     <div class="auth-form">
 
-      <div class="auth-form__title">Войти в личный кабинет</div>
+      <div class="auth-title">Войти в личный кабинет</div>
 
-      <div class="auth-form__inputs">
-        <div class="auth-form__input">
+      <div class="auth-inputs">
+        <div class="auth-input">
           <input type="text" class="input" placeholder="Электронная почта"
-                 formControlName="email"
-          >
+                  formControlName="email"
+                 [ngStyle]="{'border-color': loginForm.get('email')?.invalid
+                 && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) ? 'red' : ''}">
           <input type="password" class="input" placeholder="Пароль"
-                 formControlName="password"
-          >
+                  formControlName="password"
+                 [ngStyle]="{'border-color': loginForm.get('password')?.invalid
+                 && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) ? 'red' : ''}">
         </div>
-        <div class="auth-form__checkbox">
+        <div class="auth-checkbox">
           <input type="checkbox" id="remember"
-                 formControlName="rememberMe"
-          >
+          formControlName="rememberMe">
           <label for="remember">Запомнить меня</label>
         </div>
       </div>
 
-      <div class="auth-form__action">
-        <button class="button"
-                [disabled]="loginForm.invalid"
-                (click)="login()"
-        >Войти</button>
+      <div class="auth-action">
+        <button class="button" [disabled]="loginForm.invalid" (click)="login()">Войти</button>
       </div>
 
-      <div class="auth-form__link">
+      <div class="auth-link">
         Нет аккаунта? <a routerLink="/signup">Пройдите регистрацию</a>
       </div>
 
     </div>
 
     <div class="page-image">
-      <img src="/assets/images/pages/login.png" alt="Woman">
+      <img src="/assets/images/page/login.png" alt="Woman">
     </div>
 
   </div>

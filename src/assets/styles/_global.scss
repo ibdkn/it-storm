@@ -1,72 +1,53 @@
 @import "variables";
 
-*, *::before, *::after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-ul li {
-  list-style: none;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-}
-
 html, body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-body {
+  margin: 0;
+  padding: 0;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  color: $dark-blue-color;
-  min-width: 375px;
 }
 
 .container {
   max-width: $container-width;
-  width: 100%;
-  padding: 0 15px;
   margin: 0 auto;
 }
 
-@media screen and (max-width: 1270px) {
-  .container {
-    padding: 0 10px;
-  }
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
 }
 
 .button {
-  padding: 10px 20px;
-  max-width: max-content;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 12px;
-  line-height: 130%;
-  color: $white-color;
-  background-color: $light-blue-color;
-  transition: .3s ease-in-out;
+  text-align: center;
+  color: #FFFFFF;
+  border: none;
+  background: #709FDC;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .5s;
 
-  &:not([disabled]):hover {
-    background-color: $light-blue-hover;
-    transition: .3s ease-in-out;
+  &:hover {
+    background: #4c72a4;
+    transition: .5s;
   }
 
   &:disabled {
-    opacity: .3;
+    background: gray;
     cursor: not-allowed;
   }
+}
+
+.mat-mdc-menu-content, .mat-mdc-menu-content .mat-mdc-menu-item .mdc-list-item__primary-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: $dark-blue-text-color;
 }
 
 .owl-theme .owl-nav.disabled+.owl-dots {
@@ -91,13 +72,36 @@ body {
   background: #ffffff;
 }
 
-.common-title {
-  @include main-title;
-  margin-bottom: 40px;
-}
+.detail-article-content-text {
 
-@media screen and (max-width: 768px) {
-  .common-title {
+  h1, h1 + p {
+    display: none;
+  }
+
+  h3 {
+    font-weight: 500;
+    font-size: 20px;
+    color: $light-blue-text-color;
     margin-bottom: 20px;
   }
+
+  p {
+    font-size: 14px;
+    line-height: 130%;
+    color: $dark-blue-text-color;
+  }
+
+  b, i {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 130%;
+    color: $dark-blue-text-color;
+  }
 }
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  background-color: transparent!important;
+  box-shadow: none;
+  border-radius: 10px!important;
+}
+

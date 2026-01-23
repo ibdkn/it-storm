@@ -1,0 +1,88 @@
+@import "../../../../assets/styles/variables";
+
+.comment-item {
+
+  .comment-item-info {
+    display: flex;
+    margin-bottom: 15px;
+
+    .comment-item-info-image {
+      width: 60px;
+      height: 60px;
+      margin-right: 26px;
+    }
+
+    .comment-item-info-text {
+      .comment-item-info-text-name {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 130%;
+        color: $light-blue-text-color;
+        margin-bottom: 10px;
+      }
+      .comment-item-info-text-date {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 130%;
+        color: #BEBEBE;
+      }
+    }
+  }
+
+  .comment-item-message {
+    font-size: 14px;
+    line-height: 140%;
+    color: $dark-blue-text-color;
+    margin-bottom: 39px;
+  }
+
+  .comment-item-action {
+    display: flex;
+
+    a {
+      display: flex;
+      align-items: center;
+
+      svg path {
+        stroke: #071739;
+      }
+
+      span {
+        display: inline-block;
+        width: 15px;
+        font-weight: 600;
+        font-size: 14px;
+        color: $dark-blue-text-color;
+        text-align: right;
+        margin-right: 3px;
+
+        &.active {
+          color: $light-blue-text-color;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+
+    .like {
+      svg.active {
+        path {
+          stroke: $light-blue-text-color;
+        }
+      }
+    }
+
+    .dislike {
+      svg.active {
+        path {
+          stroke: $light-blue-text-color;
+        }
+      }
+    }
+
+
+  }
+
+}

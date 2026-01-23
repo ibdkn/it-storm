@@ -5,18 +5,16 @@
 
   .container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 20px;
 
     .auth-form {
-      &__checkbox {
+      .auth-checkbox {
         max-width: 422px;
         align-items: baseline;
 
         label {
           a {
-            color: $light-blue-color;
+            color: $light-blue-text-color;
             text-decoration: underline;
             transition: .5s;
 
@@ -29,17 +27,5 @@
       }
     }
 
-  }
-}
-
-@media screen and (max-width: 1023px) {
-  .signup {
-    padding: 60px 0;
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      gap: 50px;
-    }
   }
 }

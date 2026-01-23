@@ -1,55 +1,56 @@
 <section class="main">
   <div class="container">
-    <div class="main__carousel">
+
+    <div class="main-carousel">
 
       <owl-carousel-o [options]="customOptionsMain" #owlCarMain>
 
         <ng-template carouselSlide>
-          <div class="slide first"
-               [ngStyle]="{'background-image': 'url(/assets/images/pages/main-slide-1.png)'}">
-            <img class="slide__image" src="/assets/images/pages/main-slide-bg.png" alt="">
-            <div class="slide__category">
+          <div class="main-item first"
+               [ngStyle]="{'background-image': 'url(/assets/images/page/main-slide-1.png)'}">
+            <img src="/assets/images/page/main-slide-bg.png" alt="">
+            <div class="main-category">
               Предложение месяца
             </div>
-            <div class="slide__title">
+            <div class="main-title">
               Продвижение в Instagram для вашего бизнеса <span>-15%</span>!
             </div>
-            <button class="button slide__button">Подробнее</button>
+            <button class="button" (click)="openOrderModal('Продвижение')">Подробнее</button>
           </div>
         </ng-template>
 
         <ng-template carouselSlide>
-          <div class="slide"
-               [ngStyle]="{'background-image': 'url(/assets/images/pages/main-slide-2.png)'}">
-            <img class="slide__image" src="/assets/images/pages/main-slide-bg.png" alt="">
-            <div class="slide__category">
+          <div class="main-item"
+               [ngStyle]="{'background-image': 'url(/assets/images/page/main-slide-2.png)'}">
+            <img src="/assets/images/page/main-slide-bg.png" alt="">
+            <div class="main-category">
               Акция
             </div>
-            <div class="slide__title">
+            <div class="main-title">
               Нужен грамотный <span>копирайтер</span>?
             </div>
-            <div class="slide__description">
+            <div class="main-description">
               Весь декабрь у нас действует акция на работу копирайтера.
             </div>
-            <button class="button slide__button">Подробнее</button>
+            <button class="button" (click)="openOrderModal('Копирайтинг')">Подробнее</button>
           </div>
         </ng-template>
 
         <ng-template carouselSlide>
-          <div class="slide"
-               [ngStyle]="{'background-image': 'url(/assets/images/pages/main-slide-3.png)'}">
-            <img class="slide__image" src="/assets/images/pages/main-slide-bg.png" alt="">
-            <div class="slide__category">
+          <div class="main-item"
+               [ngStyle]="{'background-image': 'url(/assets/images/page/main-slide-3.png)'}">
+            <img src="/assets/images/page/main-slide-bg.png" alt="">
+            <div class="main-category">
               Новость дня
             </div>
-            <div class="slide__title">
+            <div class="main-title">
               <span>6 место</span> в ТОП-10 <br>
               SMM-агенств Москвы!
             </div>
-            <div class="slide__description">
+            <div class="main-description">
               Мы благодарим каждого, кто голосовал за нас!
             </div>
-            <button class="button slide__button">Подробнее</button>
+            <button class="button" (click)="openOrderModal('Реклама')">Подробнее</button>
           </div>
         </ng-template>
 
@@ -84,6 +85,7 @@
         </a>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -94,18 +96,18 @@
 
     <div class="offers-items">
 
-      <div class="offer" *ngFor="let offer of offers">
+      <div class="offers-item" *ngFor="let offer of offers">
 
-        <div class="offer__image"
+        <div class="offers-item-image"
              [ngStyle]="{'background-image': 'url(/assets/images/offers/' +  offer.image + ')'}"></div>
 
-        <div class="offer__title">{{ offer.title }}</div>
+        <div class="offers-item-title">{{ offer.title }}</div>
 
-        <div class="offer__description">{{ offer.description }}</div>
+        <div class="offers-item-description">{{ offer.description }}</div>
 
-        <div class="offer__action">
-          <div class="offer__price">От {{ offer.price }}₽</div>
-          <button class="button offer__button">Подробнее</button>
+        <div class="offers-item-action">
+          <div class="offers-item-price">От {{ offer.price }}₽</div>
+          <button class="button" (click)="openOrderModal(offer.title)">Подробнее</button>
         </div>
 
       </div>
@@ -117,24 +119,23 @@
 
 <section class="advantages" id="about">
   <div class="container">
-    <div class="advantages__image">
-      <img src="/assets/images/pages/advantages-bg.png" alt="">
-    </div>
-    <div class="info advantages__info">
-      <div class="info__main-title">Кто мы и чем мы занимаемся?</div>
-      <div class="info__description">
+    <div class="advantages-image"
+         [ngStyle]="{'background-image': 'url(/assets/images/page/advantages-image.png)'}"></div>
+    <div class="advantages-info">
+      <div class="advantages-info-main-title">Кто мы и чем мы занимаемся?</div>
+      <div class="advantages-info-description">
         <span>АйтиШторм</span> — это ваш помощник №1 при решении таких вопросов, как продвижение в сети, разработка
         сайтов
         для бизнеса и личного бренда, сторисмейкинг, копирайтинг, маркетинг, разработка визуальной концепции и создание
         инфопродуктов. Компания была основана в 2019 году и за всё это время смогла выйти в ТОП-10 агенств, предлагающих
         услуги продвижения в сети.
       </div>
-      <div class="info__title">Наши преимущества</div>
-      <div class="info__items">
+      <div class="advantages-info-title">Наши преимущества</div>
+      <div class="advantages-info-items">
 
-        <div class="item info__item">
-          <div class="item__count">1</div>
-          <div class="item__text">
+        <div class="advantages-info-item">
+          <div class="advantages-info-item-count">1</div>
+          <div class="advantages-info-item-text">
           <span>
             Мастерски вовлекаем аудиториюв процесс.
           </span>
@@ -142,9 +143,9 @@
           </div>
         </div>
 
-        <div class="item info__item">
-          <div class="item__count">2</div>
-          <div class="item__text">
+        <div class="advantages-info-item">
+          <div class="advantages-info-item-count">2</div>
+          <div class="advantages-info-item-text">
           <span>
             Разрабатываем бомбическую визуальную концепцию.
           </span>
@@ -152,9 +153,9 @@
           </div>
         </div>
 
-        <div class="item info__item">
-          <div class="item__count">3</div>
-          <div class="item__text">
+        <div class="advantages-info-item">
+          <div class="advantages-info-item-count">3</div>
+          <div class="advantages-info-item-text">
           <span>
             Создаём мощные воронки с помощью текстов.
           </span>
@@ -162,9 +163,9 @@
           </div>
         </div>
 
-        <div class="item info__item">
-          <div class="item__count">4</div>
-          <div class="item__text">
+        <div class="advantages-info-item">
+          <div class="advantages-info-item-count">4</div>
+          <div class="advantages-info-item-text">
           <span>
             Помогаем продавать больше.
           </span>
@@ -176,20 +177,18 @@
   </div>
 </section>
 
-<section class="articles" id="articles">
+<section class="popular" id="articles">
   <div class="container">
 
-    <div class="articles__title">Популярные статьи из блога</div>
+    <div class="popular-title">Популярные статьи из блога</div>
 
-    <div class="articles__items">
-      <app-article-card
-        *ngFor="let article of topArticles"
-        [article]="article"
-      >
-      </app-article-card>
+    <div class="popular-articles">
+
+      <article-card *ngFor="let article of popularArticles" [article]="article"></article-card>
+
     </div>
 
-    <a routerLink="/blog" class="articles__action">
+    <a routerLink="/blog" class="popular-action">
       <span>Перейти в блог</span>
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -203,18 +202,19 @@
 <section class="reviews" id="reviews">
   <div class="container">
 
-    <div class="reviews__title">Отзывы о нашей работе</div>
+    <div class="reviews-title">Отзывы о нашей работе</div>
 
-    <div class="reviews__carousel">
+    <div class="reviews-carousel">
+
       <owl-carousel-o [options]="customOptionsReviews" #owlCarRev>
         <ng-template carouselSlide *ngFor="let review of reviews">
-          <div class="slide">
-            <div class="slide__head">
-              <div class="slide__image"
+          <div class="reviews-item">
+            <div class="reviews-item-head">
+              <div class="reviews-item-image"
                    [ngStyle]="{'background-image': 'url(/assets/images/reviews/' +  review.image + ')'}"></div>
-              <div class="slide__name">{{ review.name }}</div>
+              <div class="reviews-item-name">{{ review.name }}</div>
             </div>
-            <div class="slide__text">
+            <div class="reviews-item-text">
               {{ review.text }}
             </div>
           </div>
@@ -253,33 +253,33 @@
         width="607" height="438" frameborder="0"></iframe>
     </div>
 
-    <div class="info contacts__info">
-      <div class="info__main-title">Контакты</div>
+    <div class="contacts-info">
+      <div class="contacts-info-main-title">Контакты</div>
 
-      <div class="info__address">
-        <div class="info__title">Адрес</div>
-        <div class="info__text">
+      <div class="contacts-info-address">
+        <div class="contacts-info-title">Адрес</div>
+        <div class="contacts-info-text">
           Главный офис компании АйтиШторм находится по адресу Пресненская наб., 12, Москва, Россия, 123317.
         </div>
       </div>
 
-      <div class="info__phone">
-        <div class="info__title">Телефон</div>
-        <div class="info__text">
+      <div class="contacts-info-phone">
+        <div class="contacts-info-title">Телефон</div>
+        <div class="contacts-info-text">
           <a href="tel:+74993431334">+7 (499) 343-13-34</a>
         </div>
       </div>
 
-      <div class="info__email">
-        <div class="info__title">Электронный адрес</div>
-        <div class="info__text">
-          <a href="mailto:info@itstorm.com">info@itstorm.com</a>
+      <div class="contacts-info-email">
+        <div class="contacts-info-title">Электронный адрес</div>
+        <div class="contacts-info-text">
+          <a href="mailto:info@itstorm.com">info&#64;itstorm.com</a>
         </div>
       </div>
 
-      <div class="info__social">
-        <div class="info__title">Мы в социальных сетях</div>
-        <div class="info__icons">
+      <div class="contacts-info-social">
+        <div class="contacts-info-title">Мы в социальных сетях</div>
+        <div class="contacts-info-icons">
           <a href="#">
             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_14_131)">
@@ -323,3 +323,55 @@
   </div>
 </section>
 
+<ng-template #thanksPopup>
+  <div class="popup">
+    <div class="popup-close" (click)="closeThanksPopup()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="1.93562" y1="2.6499" x2="13.9564" y2="14.6707" stroke="#BEBEBE" stroke-linecap="round"/>
+        <line x1="13.9236" y1="2.62971" x2="1.90277" y2="14.6505" stroke="#BEBEBE" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="popup-title">
+      Спасибо за вашу заявку!
+    </div>
+    <div class="popup-content">
+      Мы свяжемся с вами при первой же возможности.
+    </div>
+    <button class="button" (click)="closeThanksPopup()">Окей</button>
+  </div>
+</ng-template>
+
+<ng-template #orderPopup [formGroup]="order">
+  <div class="popup order-popup">
+    <div class="popup-close" (click)="closeOrderPopup()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="1.93562" y1="2.6499" x2="13.9564" y2="14.6707" stroke="#BEBEBE" stroke-linecap="round"/>
+        <line x1="13.9236" y1="2.62971" x2="1.90277" y2="14.6505" stroke="#BEBEBE" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="popup-title order-popup-title">
+      Заявка на услугу
+    </div>
+    <div class="auth-form order-popup-content popup-content">
+      <div class="auth-inputs">
+        <div class="auth-input">
+          <select class="input" formControlName="service">
+            <option *ngFor="let offer of offers" value="{{offer.title}}">{{ offer.title }}</option>
+          </select>
+          <input type="text" class="input" placeholder="Ваше имя"
+                 formControlName="name"
+                 [ngStyle]="{'border-color': order.get('name')?.invalid
+                 && (order.get('name')?.dirty || order.get('name')?.touched) ? 'red' : ''}">
+          <input type="text" class="input" placeholder="Ваш номер телефона"
+                 formControlName="phone"
+                 [ngStyle]="{'border-color': order.get('phone')?.invalid
+                 && (order.get('phone')?.dirty || order.get('phone')?.touched) ? 'red' : ''}">
+        </div>
+      </div>
+    </div>
+    <button class="button" [disabled]="order.invalid" (click)="createOrder()">Оставить заявку</button>
+    <div class="request-error" *ngIf="errorRequest">
+      Произошла ошибка при отправке формы, попробуйте еще раз!
+    </div>
+  </div>
+</ng-template>
